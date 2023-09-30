@@ -20,7 +20,7 @@ public:
 	AChunk();
 
 	UFUNCTION(BlueprintCallable, Category="Generation")
-	void GenerateTerrain();
+	void GenerateMesh();
 
 protected:
 	// Called when the game starts or when spawned
@@ -37,6 +37,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	//int Grid [CHUNKSIZE][CHUNKSIZE][CHUNKSIZE];
+	int Grid [CHUNKSIZE][CHUNKSIZE][CHUNKSIZE];
+	
 	UProceduralMeshComponent* ProceduralMesh;
 };

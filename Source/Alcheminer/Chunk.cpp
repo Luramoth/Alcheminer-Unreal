@@ -20,7 +20,6 @@ void AChunk::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ProceduralMesh->CreateMeshSection(0, Vertices, Triangles, TArray<FVector>(), TArray<FVector2d>(), TArray<FColor>(), TArray<FProcMeshTangent>(), true);
 }
 
 // Called every frame
@@ -30,7 +29,8 @@ void AChunk::Tick(float DeltaTime)
 
 }
 
-void AChunk::GenerateTerrain()
+void AChunk::GenerateMesh()
 {
-	
+	ProceduralMesh->CreateMeshSection(0, Vertices, Triangles, TArray<FVector>(), TArray<FVector2d>(), TArray<FColor>(), TArray<FProcMeshTangent>(), true);
+
 }
