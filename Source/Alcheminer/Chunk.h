@@ -19,8 +19,13 @@ public:
 	// Sets default values for this actor's properties
 	AChunk();
 
+	UPROPERTY(BlueprintReadOnly, Transient, VisibleAnywhere)
+	FVector ID;
+
 	UFUNCTION(BlueprintCallable, Category="Generation")
 	void GenerateMesh();
+
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 protected:
 	// Called when the game starts or when spawned
@@ -37,7 +42,11 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	int Grid [CHUNKSIZE][CHUNKSIZE][CHUNKSIZE];
+	UPROPERTY(VisibleAnywhere, Replicated)
+	int Grid[CHUNKSIZE * CHUNKSIZE * CHUNKSIZE];
+	//TArray<int16> Grid;
 	
 	UProceduralMeshComponent* ProceduralMesh;
+
+	void MakeID();
 };
