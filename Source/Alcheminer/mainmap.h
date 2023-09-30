@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Chunk.h"
 #include "Engine/LevelScriptActor.h"
 #include "mainmap.generated.h"
 
@@ -13,5 +14,12 @@ UCLASS()
 class ALCHEMINER_API Amainmap : public ALevelScriptActor
 {
 	GENERATED_BODY()
-	
+
+protected:
+	virtual void BeginPlay() override;
+
+private:
+
+	UPROPERTY()
+	TArray<AChunk*> LoadedChunks;
 };
