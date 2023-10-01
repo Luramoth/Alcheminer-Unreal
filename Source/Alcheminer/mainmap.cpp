@@ -5,8 +5,11 @@
 
 void Amainmap::BeginPlay()
 {
-	const FVector loc(0.0f,0.0f,0.0f);
-	const FTransform trans(FQuat::Identity, loc);
+	if (HasAuthority())
+	{
+		const FVector loc(0.0f,0.0f,0.0f);
+		const FTransform trans(FQuat::Identity, loc);
 	
-	LoadedChunks.Add(GetWorld()->SpawnActor<AChunk>(AChunk::StaticClass(), trans));
+		LoadedChunks.Add(GetWorld()->SpawnActor<AChunk>(AChunk::StaticClass(), trans));
+	}
 }
