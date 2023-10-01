@@ -45,7 +45,8 @@ private:
 	UPROPERTY(VisibleAnywhere, Replicated)
 	int Grid[CHUNKSIZE * CHUNKSIZE * CHUNKSIZE];
 	//TArray<int16> Grid;
-	
+
+	UPROPERTY()
 	UProceduralMeshComponent* ProceduralMesh;
 
 	void MakeID();
